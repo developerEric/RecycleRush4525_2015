@@ -47,8 +47,8 @@ public class RobotMap {
 	
 	// DIO Section
 	
-	public final static int limit_TopSwitch = 7,
-						limit_BottomSwitch = 6,
+	public final static int limit_BottomSwitch = 6, 
+						limit_TopSwitch = 7,
 						limit_FrontSwitch = 9,
 						limit_BackSwitch = 8;
 	
@@ -59,15 +59,14 @@ public class RobotMap {
 	// DIGITAL INPUT OUTPUT TO RIO ------------------>
 	// Encoders
 	
-	// Wimch
+	// Winch
 	public final static int winchEncoderSignalA = 4, winchEncoderSignalB = 5;
-	
 	public final static double winchBrakePower = 0.005;
 	
 	public final static int encoderSignalA = 0,
 				encoderSignalB = 1;
-	public final static boolean reverseEncoder = false;
 	public final static double encoderPulseMultiplier = 0.07; // 0.051
+	public final static boolean reverseEncoder = false;
 	
 	// Winch Limits
 
