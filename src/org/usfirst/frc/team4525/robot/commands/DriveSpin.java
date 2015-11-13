@@ -14,6 +14,10 @@ public class DriveSpin extends Command {
 	
 	private double left,right;
 	
+	
+	// Positive value goes right
+	// Negative value to the left
+	
     public DriveSpin(int degrees, double speed) {
     	requires(Robot.drive);
     	requires(Robot.pos);

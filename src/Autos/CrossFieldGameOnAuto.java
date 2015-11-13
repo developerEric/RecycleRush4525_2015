@@ -24,7 +24,7 @@ public class CrossFieldGameOnAuto extends CommandGroup {
     	// Extend Arm
     	addParallel(new ExtendBoom(ExtendBoom.Position.Full_Forwards));
     	// Drive across field
-    	addParallel(new DriveDistance(86, 0.5));
+    	addSequential(new DriveDistance(86, 0.5));
     	// Get Ready to grab bin
     	// Not sure if this will work!?
     	while(!isFinished()); // Wait until all Commands are done
