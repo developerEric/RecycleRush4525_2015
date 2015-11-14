@@ -25,6 +25,7 @@ public class FarSpinGrab extends CommandGroup {
     	addParallel(new WinchBrake());
     	// Spin
     	addSequential(new DriveSpin(90,0.5));
+    	
     	// Drive into totes
     	addSequential(new DriveDistance(5,0.5));
     	
@@ -37,6 +38,7 @@ public class FarSpinGrab extends CommandGroup {
     	
     	// Get to Autozone
       	addSequential(new WinchPosition(2000));
+      	
       	// ExtendBoom also runs winch brake
     	addSequential(new ExtendBoom(ExtendBoom.Position.Full_Backwards));
     	
