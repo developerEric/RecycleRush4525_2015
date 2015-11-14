@@ -2,6 +2,8 @@
 package org.usfirst.frc.team4525.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team4525.robot.Robot;
 /**
  *
@@ -12,6 +14,10 @@ public class DriveDistance extends Command {
 	private static double power;
 	
 	private boolean complete = false;
+	
+	/*
+	 * 100 Goes 115" 
+	 */
 	
     public DriveDistance(int distance, double speed) {
         // Use requires() here to declare subsystem dependencies
@@ -35,11 +41,12 @@ public class DriveDistance extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	SmartDashboard.putString("Distance:",Integer.toString(Robot.pos.distance()));
     	if((finalDistance > 0 && Robot.pos.distance() < finalDistance) || (finalDistance < 0 && Robot.pos.distance() > finalDistance)) {
     		double offset = -Robot.pos.angle() * 0.15;
     		if (offset > 0.15) offset = 0.15;
     		if (offset < -0.15) offset = -0.15;
-    		Robot.drive.arcadeDrive(offset,power);
+    		Robot.drive.arcadeDrive(offset,-power);
     	} else {
         	this.end();
     	}

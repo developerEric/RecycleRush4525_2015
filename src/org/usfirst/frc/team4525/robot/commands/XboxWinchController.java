@@ -35,7 +35,7 @@ public class XboxWinchController extends Command {
     		Robot.winch.brake();
     	}
     	// Moving left & right
-    	if ((posLR > 0.75 || posLR < -0.75) && ((Robot.limits.canMoveForwards() && posLR > 0) || (Robot.limits.canMoveBackwards() && posLR < 0))){
+    	if ((posLR > 0.75 || posLR < -0.75) && ((Robot.limits.canMoveForwards() && posLR < 0) || (Robot.limits.canMoveBackwards() && posLR > 0))){
     		Robot.winch.moveX(posLR);
     	} else {
     		Robot.winch.moveX(0);

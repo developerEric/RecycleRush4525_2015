@@ -3,6 +3,7 @@ package org.usfirst.frc.team4525.robot.commands;
 import org.usfirst.frc.team4525.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -30,6 +31,7 @@ public class WinchPosition extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.winch.brakeOff();
+    	SmartDashboard.putString("Winch Position: ", Integer.toString(Robot.winch.yPosition()));
     	if(moveUp && Robot.winch.yPosition() < movetopos) {
     		Robot.winch.moveY(1);
     	} else if(!moveUp && Robot.winch.yPosition() > movetopos) {
@@ -46,7 +48,7 @@ public class WinchPosition extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.winch.tillBrake();
+    	//obot.winch.tillBrake();
     	complete = true;
     }
 

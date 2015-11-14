@@ -74,10 +74,11 @@ public class Winch extends Subsystem {
 	public boolean tillBrake() {
 		if(!encoder.getStopped()) {
 			if(!encoder.getDirection()) {
-				brakePower += RobotMap.winchBrakePower;
+				brakePower += (RobotMap.winchBrakePower*2);
 			} else if(brakePower > 0) {
-				brakePower -= RobotMap.winchBrakePower;
+				brakePower -= (RobotMap.winchBrakePower*2);
 			}
+			moveY(brakePower);
 		}
 		return encoder.getStopped();
 	}

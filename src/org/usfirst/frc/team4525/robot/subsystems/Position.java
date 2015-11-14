@@ -16,7 +16,7 @@ public class Position extends Subsystem {
     // here. Call these from Commands.
 	
 	private Gyro gyro = new Gyro(RobotMap.gyroIn);
-	Encoder encoder = new Encoder(RobotMap.encoderSignalA, RobotMap.encoderSignalB, true, EncodingType.k4X);
+	Encoder encoder = new Encoder(RobotMap.encoderSignalA, RobotMap.encoderSignalB, false, EncodingType.k4X);
 	
 	public int angle() {
 		return (int)gyro.getAngle();

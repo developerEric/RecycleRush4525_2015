@@ -34,9 +34,9 @@ public class ExtendBoom extends Command {
     	if(!Robot.limits.isOnGround()) Robot.winch.brake();
 
     	if(pos == Position.Full_Backwards && Robot.limits.canMoveBackwards()) {
-    		Robot.winch.moveX(-1);
-    	} else if(pos == Position.Full_Forwards && Robot.limits.canMoveForwards()) {
     		Robot.winch.moveX(1);
+    	} else if(pos == Position.Full_Forwards && Robot.limits.canMoveForwards()) {
+    		Robot.winch.moveX(-1);
     	} else {
     		this.end();
     	}

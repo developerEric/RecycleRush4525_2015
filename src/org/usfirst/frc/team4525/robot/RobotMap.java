@@ -49,8 +49,8 @@ public class RobotMap {
 	
 	public final static int limit_BottomSwitch = 6, 
 						limit_TopSwitch = 7,
-						limit_FrontSwitch = 9,
-						limit_BackSwitch = 8;
+						limit_FrontSwitch = 8,
+						limit_BackSwitch = 9;
 	
 	// ANALOG TO RIO ------------------>
 	// Gyro

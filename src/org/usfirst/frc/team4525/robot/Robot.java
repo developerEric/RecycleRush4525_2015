@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4525.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -44,18 +45,6 @@ public class Robot extends IterativeRobot {
 		d_sets = new DriveSettings();
 		
 		// Select the Autonomous Command
-		AutoMode mode = d_sets.getSelectedAuto();
-		if (mode == AutoMode.To_Autozone) {
-			autonomousCommand = new Autos.ToAutozone();
-		} else if(mode == AutoMode.Bin_To_Autozone) {
-			autonomousCommand = new Autos.BinToAutozone();
-		} else if(mode == AutoMode.Bin_Prepare_Noodle) {
-			autonomousCommand = new Autos.PrepareToNoodle();
-		} else if(mode == AutoMode.Cross_Field) {
-			autonomousCommand = new Autos.CrossFieldGameOnAuto();
-		} else if(mode == AutoMode.Far_Start_Spin_Grab) {
-			autonomousCommand = new Autos.FarSpinGrab();
-		}
 		// Else command is null because default selected is NOTHING.
     }
 	
@@ -65,6 +54,20 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	AutoMode mode = d_sets.getSelectedAuto();
+		if (mode == AutoMode.To_Autozone) {
+			autonomousCommand = new Autos.ToAutozone();
+		} else if(mode == AutoMode.Bin_To_Autozone) {
+			autonomousCommand = new Autos.BinToAutozone();
+		} else if(mode == AutoMode.Tote_To_Autozone) {
+			autonomousCommand = new Autos.ToteToAutozone();
+		} else if(mode == AutoMode.Bin_Prepare_Noodle) {
+			autonomousCommand = new Autos.PrepareToNoodle();
+		} else if(mode == AutoMode.Far_Start_Spin_Grab) {
+			autonomousCommand = new Autos.FarSpinGrab();
+		} 
+		DriverStation.reportError("Running auto " + mode, false);
+		
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
@@ -86,6 +89,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
+    	if (autonomousCommand != null) autonomousCommand.cancel();
  
     }
 

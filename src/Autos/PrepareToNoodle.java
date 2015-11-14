@@ -2,6 +2,7 @@ package Autos;
 
 import org.usfirst.frc.team4525.robot.commands.Claw;
 import org.usfirst.frc.team4525.robot.commands.ClawTilt;
+import org.usfirst.frc.team4525.robot.commands.WinchBrake;
 import org.usfirst.frc.team4525.robot.commands.WinchPosition;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -17,7 +18,9 @@ public class PrepareToNoodle extends CommandGroup {
     	Timer.delay(0.5);
     	// Grab the Bin
     	addSequential(new Claw(Claw.Position.GRIP));
-    	Timer.delay(5);
-    	addSequential(new WinchPosition(2800));
+    	Timer.delay(4);
+    	// Rise to the top:
+    	addSequential(new WinchPosition(2000));
+    	addSequential(new WinchBrake());
     }
 }

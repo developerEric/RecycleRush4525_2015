@@ -8,7 +8,7 @@ public class DriveSettings {
 	private SendableChooser auto_choose;
 	
 	public enum AutoMode {
-		Nothing, To_Autozone, Bin_To_Autozone, Bin_Prepare_Noodle, Cross_Field, Far_Start_Spin_Grab;
+		Nothing, To_Autozone, Bin_To_Autozone, Tote_To_Autozone, Bin_Prepare_Noodle, Far_Start_Spin_Grab;
 	}
 
 	
@@ -17,9 +17,9 @@ public class DriveSettings {
 		auto_choose = new SendableChooser();
 		auto_choose.addDefault("Do Nothing", AutoMode.Nothing);
 		auto_choose.addObject("To Autozone", AutoMode.To_Autozone);
-		auto_choose.addObject("Drag Bin To Autozone", AutoMode.To_Autozone);
+		auto_choose.addObject("Drag Bin To Autozone", AutoMode.Bin_To_Autozone);
+		auto_choose.addObject("Drag Tote To Autozone", AutoMode.Tote_To_Autozone);
 		auto_choose.addObject("Prepare To Noodle Bin ", AutoMode.Bin_Prepare_Noodle);
-		auto_choose.addObject("Get Far Bin across Field", AutoMode.Cross_Field);
 		auto_choose.addObject("Far Spin & Grab Bin To Autozone", AutoMode.Far_Start_Spin_Grab);
 		
 		// Send to Smartdashboard Client
